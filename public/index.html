@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TBO Tripify – Aesthetic Trip Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <h1>TBO Tripify</h1>
+      <p>Aesthetic-based trip planner for your next escape.</p>
+    </header>
+
+    <section class="input-section">
+      <div class="input-card">
+        <label class="label">Upload an image</label>
+        <div class="upload-box" id="uploadBox">
+          <input type="file" id="imageInput" accept="image/*"> 
+          <span>Drop or choose a photo</span>
+        </div>
+        <img id="previewImage" class="preview" style="display:none;" />
+      </div>
+
+      <div class="input-card">
+        <label class="label">Or type aesthetic keywords</label>
+        <textarea id="textPrompt" placeholder="e.g. misty mountains, cozy cabins, starry sky..."></textarea>
+      </div>
+    </section>
+
+    <section class="action-section">
+      <button id="planButton">Plan my trip</button>
+      <div id="status"></div>
+    </section>
+
+    <section class="results-section">
+      <h2>Suggested trips</h2>
+      <div id="results" class="results-grid"></div>
+    </section>
+    <section class="results-section">
+    <h2>My Trips</h2>
+    <div id="myTrips" class="results-grid"></div>
+    </section>
+
+
+    <footer>
+      <p>Built at TBO Hackathon with ❤️</p>
+    </footer>
+  </div>
+
+  <script type="module" src="supabaseClient.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

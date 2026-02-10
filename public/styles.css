@@ -1,0 +1,342 @@
+:root {
+  /* New palette */
+  --bg: #f9fafb;           /* Cloud White */
+  --card: #ffffff;         /* light card on white bg */
+  --accent: #ffd93d;       /* Sun Yellow (CTAs) */
+  --accent-soft: rgba(255, 217, 61, 0.18);
+  --accent-secondary: #4d96ff; /* Sky Blue (headers, links) */
+  --accent-teal: #2ec4b6;  /* Ocean Teal (icons, chips) */
+  --text: #0f172a;         /* dark text */
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --section-bg: #f4ead5;   /* Sand Beige sections/footer */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ===== HERO + AUTH (top-right) ===== */
+
+.hero {
+  position: relative;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+  color: var(--accent-secondary);
+}
+
+.hero p {
+  color: var(--muted);
+}
+
+/* auth-box wrapper created in auth.js */
+.auth-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.auth-box h3 {
+  display: none; /* we don't need the label inside the pill */
+}
+
+.auth-box input {
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  min-width: 160px;
+}
+
+.auth-box input:focus {
+  outline: none;
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 0 1px rgba(77, 150, 255, 0.3);
+}
+
+.auth-box button {
+  border-radius: 999px;
+  border: none;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#signupBtn {
+  background: var(--accent);
+  color: #111827;
+}
+
+#loginBtn {
+  background: var(--accent-secondary);
+  color: #f9fafb;
+}
+
+#logoutBtn {
+  background: var(--accent-teal);
+  color: #f9fafb;
+}
+
+#authStatus {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ===== INPUT SECTION ===== */
+
+.input-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.input-card {
+  flex: 1 1 260px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.upload-box {
+  position: relative;
+  border: 1px dashed #cbd5f5;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.1s;
+  background: #f9fafb;
+}
+
+.upload-box:hover {
+  border-color: var(--accent-teal);
+  background: #eefbf9;
+  transform: translateY(-1px);
+}
+
+.upload-box input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.preview {
+  margin-top: 12px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== TEXTAREA ===== */
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: var(--text);
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 0 1px rgba(77, 150, 255, 0.25);
+}
+
+/* ===== ACTION / CTA ===== */
+
+.action-section {
+  margin: 16px 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#planButton {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffd93d, #fbbf24);
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s;
+}
+
+#planButton:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  box-shadow: none;
+}
+
+#planButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(251, 191, 36, 0.65);
+}
+
+#status {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ===== RESULTS ===== */
+
+.results-section {
+  margin-top: 24px;
+  background: var(--section-bg);
+  border-radius: 18px;
+  padding: 16px 16px 20px;
+}
+
+.results-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #1f2933;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.result-card {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.result-title {
+  font-weight: 700;
+  color: #111827;
+}
+
+.result-country {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #92400e;
+}
+
+.result-summary {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.itinerary-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 0.9rem;
+}
+
+.budget {
+  font-weight: 600;
+  margin-top: 4px;
+  color: #111827;
+}
+
+.links {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.links a {
+  font-size: 0.85rem;
+  color: var(--accent-secondary);
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--section-bg);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .auth-box {
+    position: static;
+    margin-top: 12px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
